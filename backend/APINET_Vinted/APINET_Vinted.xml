@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>APINET_Vinted</name>
+    </assembly>
+    <members>
+        <member name="M:APINET_Vinted.Controllers.PedidosController.GetPedidos">
+            <summary>
+            Obtiene todos los pedidos generados
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:APINET_Vinted.Controllers.UsuariosController.GetUsuarios">
+            <summary>
+            Obtiene todos los usuarios de la aplicación
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

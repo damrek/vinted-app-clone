@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="position"
+            type="Integer"/>
+        <variable
+            name="model"
+            type="com.dmareca.vintedmvvm.viewmodel.UsuarioVentasViewModel"/>
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/usuarioventas_card"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        cardview:cardCornerRadius="@dimen/coner_radius"
+        android:layout_marginBottom="@dimen/fab_margin">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="100">
+
+            <ImageView
+                android:id="@+id/avatarImgCard"
+                android:layout_width="175dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/avatar"
+                android:scaleType="centerCrop"
+                android:transitionName="@string/transitionName_picture" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="10dp"
+                android:weightSum="100">
+
+                <TextView
+                    android:id="@+id/usernameVentas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="10"
+                    android:paddingTop="15dp"
+                    android:text="@{model.getUsuarioAt(position).username}"
+                    android:textColor="#000"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/fechaRegistroVentas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="10"
+                    android:text="@{`Fecha registro: ` + model.getUsuarioAt(position).fechaRegistro.toString().substring(0,10)}"
+                    android:textColor="#000"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/totalVentas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="75dp"
+                    android:gravity="center_vertical"
+                    android:layout_weight="10"
+                    android:text="@{`Ventas totales: ` + String.valueOf(model.getUsuarioAt(position).totalVentas)}"
+                    android:textColor="@color/primary_dark"
+                    android:textSize="25dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="position"
+            type="Integer"/>
+        <variable
+            name="model"
+            type="com.dmareca.vintedmvvm.viewmodel.PedidoViewModel"/>
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/pedido_card"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginBottom="@dimen/fab_margin"
+        cardview:cardCornerRadius="@dimen/coner_radius">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="100">
+
+            <ImageView
+                android:id="@+id/pedidoImgCard"
+                android:layout_width="175dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/logo"
+                app:imagenUrl="@{model.getPedidoAt(position).producto.imagen}"
+                android:scaleType="centerCrop"
+                android:transitionName="@string/transitionName_picture" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="10dp"
+                android:weightSum="100">
+
+                <TextView
+                    android:id="@+id/numeroPedido"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="10"
+                    android:paddingTop="15dp"
+                    android:textColor="#000"
+                    android:text="@{`Pedido `+String.valueOf(model.getPedidoAt(position).id)}"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/cantidadPedido"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="10"
+                    android:textColor="#000"
+                    android:text="@{`Cantidad: `+String.valueOf(model.getPedidoAt(position).cantidad)}"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/precioPedido"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="10"
+                    android:textColor="#000"
+                    android:text="@{`Precio: ` + String.valueOf(model.getPedidoAt(position).precio) + ` €`}"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/fechaPedido"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="10"
+                    android:text="@{`Fecha: ` + model.getPedidoAt(position).fecha.toString().substring(0,10)}"
+                    android:textColor="#000"
+                    android:textSize="18dp" />
+
+<!--                <TextView-->
+<!--                    android:id="@+id/estadoPedido"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="10"-->
+<!--                    android:text="Sin confirmar"-->
+<!--                    android:textColor="@color/primary_dark"-->
+<!--                    android:textSize="18dp" />-->
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

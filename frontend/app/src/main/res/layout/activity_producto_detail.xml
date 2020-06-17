@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="model"
+            type="com.dmareca.vintedmvvm.viewmodel.PedidoViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="100">
+
+        <include layout="@layout/actionbar_toolbar"></include>
+
+
+        <ImageView
+            android:id="@+id/imgProducto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/logo"
+            android:transitionName="@string/transitionName_picture"
+            android:layout_weight="40" />
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:weightSum="100">
+
+            <TextView
+                android:id="@+id/detalleNombreProducto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre del producto"
+                android:textSize="22sp"
+                android:paddingLeft="16dp"
+                android:layout_weight="50" />
+
+            <TextView
+                android:id="@+id/detallePuntuacionProducto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Puntos 10"
+                android:textSize="18sp"
+                android:paddingLeft="15dp"
+                android:layout_weight="25" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/puntosIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:layout_margin="16dp"
+                app:fabSize="mini"
+                android:backgroundTint="@color/primary_dark"
+                app:srcCompat="@drawable/heart" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/detallePrecioProducto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Precio"
+            android:textSize="16sp"
+            android:paddingLeft="16dp"
+            android:paddingTop="8dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/detalleDescripcionProducto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Descripción del producto"
+            android:paddingLeft="16dp"
+            android:paddingTop="16dp"
+            android:layout_weight="30" />
+
+        <Button
+            android:id="@+id/btnComprar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/primary_dark"
+            android:text="Añadir"
+            android:textColor="@color/primary"
+            android:theme="@style/RaiseButtonDark" />
+    </LinearLayout>
+</layout>
